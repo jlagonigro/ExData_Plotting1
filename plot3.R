@@ -9,14 +9,15 @@ plot3 <- function() {
    # convert date column to date class
    ourData$Date <- strptime(paste(ourData$Date, ourData$Time, sep=" " ), "%d/%m/%Y %H:%M:%S")
    
+   # Write plot to PNG file
+   png(file="plot3.png")
+   
    # Plot our lines
    plot(ourData$Date, ourData$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="")
    lines(ourData$Date, ourData$Sub_metering_2, col="red")
    lines(ourData$Date, ourData$Sub_metering_3, col="blue")
    legend("topright",col=c("black","red","blue"), lty=1, legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
    
-   
    # Write our histogram to a PNG file
-   dev.copy(png, file="plot3.png", width=480, height=480)
    dev.off()
 }
