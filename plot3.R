@@ -9,7 +9,7 @@ plot3 <- function() {
    # convert date column to date class
    ourData$Date <- strptime(paste(ourData$Date, ourData$Time, sep=" " ), "%d/%m/%Y %H:%M:%S")
    
-   # Plot our histogram
+   # Plot our lines
    plot(ourData$Date, ourData$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="")
    lines(ourData$Date, ourData$Sub_metering_2, col="red")
    lines(ourData$Date, ourData$Sub_metering_3, col="blue")
