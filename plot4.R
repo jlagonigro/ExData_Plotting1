@@ -9,6 +9,9 @@ plot4 <- function() {
    # convert date column to date class
    ourData$Date <- strptime(paste(ourData$Date, ourData$Time, sep=" " ), "%d/%m/%Y %H:%M:%S")
    
+   # Ready our PNG output
+   png(file="plot4.png", width=480, height=480)
+   
    # setup 2 columns and two rows for plots
    par(mfcol = c(2,2))
    
@@ -27,7 +30,6 @@ plot4 <- function() {
    # Plot line chart for reactive power as chart 4
    plot(ourData$Date, ourData$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime")
    
-   # Write our histogram to a PNG file
-   dev.copy(png, file="plot4.png", width=480, height=480)
+   # Write our charts to a PNG file
    dev.off()
 }
